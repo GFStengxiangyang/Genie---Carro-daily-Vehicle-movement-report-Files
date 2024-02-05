@@ -37,7 +37,7 @@ df4 = pd.merge(df3, df2, left_on='chassis_number', right_on='Chassis No',how = "
 df4 = df4.replace(np.nan, 'not in eAuto', regex=True)
 import datetime as dt
 today = dt.date.today()
-yesterday = dt.date(today.year,today.month,today.day-1)
+yesterday = today - dt.timedelta(days=1)
 df4 = df4.rename(columns = {'account_status':'account_status' +  format(yesterday), 'Vehicle No.':'car_plate (eAuto)', 'Chassis No':'Chassis (eAuto)'})
 
 

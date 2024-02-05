@@ -1,17 +1,17 @@
 import pandas as pd
 import os
+from natsort import natsorted 
+
 path = "C:/Users/teng.xiangyang/Desktop/Vehicle movement report/"
 files = os.listdir(path)
 files_xlsx = [f for f in files if f[-4:] == 'xlsx']
-
-
-print(files_xlsx)
+files_xlsx = natsorted(files_xlsx)
 
 df_list = []
 for f in files_xlsx:
     data = pd.read_excel(os.path.join(path, f),skiprows=4)
     df_list.append(data)
-
+ 
 df = pd.concat(df_list)
 
 

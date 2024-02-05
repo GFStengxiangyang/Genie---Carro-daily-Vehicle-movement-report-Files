@@ -11,7 +11,7 @@ use_columns=['group_id','group_name','car_plate','account_status','disbursement_
 df_list = []
 for f in files_xlsx:
     df = pd.read_excel(os.path.join(path, f), sheet_name='floorstock_analysis', usecols = use_columns)
-    df=df.sort_values(by=['group_id'], ascending=True)
+
 import datetime as dt
 
 df['disbursement_date'] = pd.to_datetime(df['disbursement_date']).dt.date
