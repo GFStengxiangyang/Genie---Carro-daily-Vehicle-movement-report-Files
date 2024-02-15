@@ -14,6 +14,8 @@ for f in files_xlsx:
  
 df = pd.concat(df_list)
 
+df['Chassis No'] = df['Chassis No'].str.replace('-','')
+
 
 output_path = "C:/Users/teng.xiangyang/Desktop/Codes and files/Vehicle_movement_report_combined_files.xlsx"
 df.to_excel(output_path, index=False)
