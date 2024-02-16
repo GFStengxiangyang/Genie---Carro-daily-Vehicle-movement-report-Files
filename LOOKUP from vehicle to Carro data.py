@@ -15,14 +15,14 @@ df['chassis_number'] = df['chassis_number'].str.upper()
 #vehicle file (by vehicle No. look up)
 use_columns=['Vehicle No.','Tx Type.1']
 df1 = pd.read_excel(r"C:/Users/teng.xiangyang/Desktop/Codes and files/Vehicle_movement_report_combined_files.xlsx",usecols = use_columns)
-df1=df1.drop_duplicates(subset=["Vehicle No."], keep="first")
+df1=df1.drop_duplicates(subset=["Vehicle No."], keep="last")
 df1['Vehicle No.'] = df1['Vehicle No.'].str.upper()
 
 
 #vehicle file (by chassis no look up)
 use_columns=['Chassis No','Tx Type.1']
 df2 = pd.read_excel(r"C:/Users/teng.xiangyang/Desktop/Codes and files/Vehicle_movement_report_combined_files.xlsx",usecols = use_columns)
-df2=df2.drop_duplicates(subset=["Chassis No"], keep="first")
+df2=df2.drop_duplicates(subset=["Chassis No"], keep="last")
 df2['Chassis No'] = df2['Chassis No'].str.upper()
 
 
